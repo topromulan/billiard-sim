@@ -20,7 +20,7 @@ public class Felt extends SimplePlane {
                         double vy = rack.set[i].motion.vy();
 
                         double x = rack.set[i].location.x();
-                        double y = rack.set[i].location.x();
+                        double y = rack.set[i].location.y();
 
                         //add a little fluxion of the vector to the location
                         //
@@ -28,14 +28,43 @@ public class Felt extends SimplePlane {
 			//Newton currently values the fluxion at:
 			float fluxion=0.1f;
 
-                        x = x + vx*fluxion;
-                        y = y + vy*fluxion;
+                        x += vx*fluxion;
+                        y += vy*fluxion;
 
-			if(check(rack.set[i].location));
 			//does the location violate a border?
 			//
 
-			//if so, reflect the vector.
+			if( ! checkx(rack.set[i].location.x()))
+			{
+				System.err.format(
+					"%s ball went out sideways.\n", 
+					rack.set[i].adjective
+					);
+
+				// reverse the flux!!
+				vx *= -1;			
+
+				// send 'er back
+				x += 2*vx*fluxion;
+
+
+			}
+
+			if( ! checky(rack.set[i].location.y()))
+			{
+				System.err.format(
+					"%s ball went out up or down.\n", 
+					rack.set[i].adjective
+					);
+
+				// reverse the flux!!
+				vy *= -1;			
+
+				// send 'er back
+				y += 2*vy*fluxion;
+
+			}
+
 
 			//note: nothing slowing them down
 			// at this point..
@@ -57,30 +86,32 @@ public class Felt extends SimplePlane {
 
 	}
 
-	public boolean check(SimpleCoordinates xy) {
-			// check if xy is negative or exceeds bounds
+	public boolean checkx(double x) {
+			// check if x is negative or exceeds bounds
 			//
 
 			if ( 
-				xy.x() > 0 	&&
-				xy.y() > 0 	&&
-				xy.x() < this.width() &&
-				xy.y() < this.height()
+				x > 0 	&&
+				x < this.width()
 			) 
+				return true;
 
-			{
+			return false;
+	}
 
-				return false;
+	public boolean checky(double y) {
+			// check if y is negative or exceeds bounds
+			//
 
+			if ( 
+				y > 0 	&&
+				y < this.height()
+			) 
+				return true;
 
-			}
+			return false;
+	}
 
-			return true;
-
-
-
-
-		}
 
 
 

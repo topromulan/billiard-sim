@@ -8,15 +8,15 @@ public class Test2 {
 			
 			//  Ball(n, a, m, r, x, y, vx, vy)
 			//
-			new Ball("Orange ball", "orange", 
+			/*new Ball("Orange ball", "orange", 
 					2.0, 1, 
-					150, 150, 1, 1),
+					150, 250, 1, 1),
 			new Ball("White ball", "white",   
 					2.0, 1, 
-					200, 200, 1, 1),
+					630, 200, 1, 1),*/
 			new Ball("Green ball", "green",   
 					2.1, 1.01, 
-					010, 010, -1, 0)
+					450, 240, 5.75, 10)
 
 			});
 
@@ -24,7 +24,17 @@ public class Test2 {
 						// adjust for screen ratio in
 						// higher layer
 
+
 		
+
+		System.out.println(theRack.report());
+
+
+		
+			try {
+
+				java.lang.Thread.sleep(5000);
+			} catch (Exception e) {}
 		
 
 
