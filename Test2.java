@@ -6,9 +6,17 @@ public class Test2 {
 
 		Rack theRack = new Rack (new Ball[] { 
 			
-			new Ball("Orange ball", "orange", 2.0, 1, 1, 1, 1, 1),
-			new Ball("White ball", "white",   2.0, 1, 0, 0, 1, 1),
-			new Ball("Green ball", "green",   2.1, 1, -1, -1, -1, -1)
+			//  Ball(n, a, m, r, x, y, vx, vy)
+			//
+			new Ball("Orange ball", "orange", 
+					2.0, 1, 
+					150, 150, 1, 1),
+			new Ball("White ball", "white",   
+					2.0, 1, 
+					200, 200, 1, 1),
+			new Ball("Green ball", "green",   
+					2.1, 1.01, 
+					010, 010, -1, 0)
 
 			});
 
