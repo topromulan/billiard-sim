@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+while [ motion ]
+ table rubs balls
+
+
+[time slice]
+- calculate current positions.
+- did collision occur?
+- if so, recalculate vectors
+
+

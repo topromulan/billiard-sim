@@ -1,0 +1,51 @@
+dra@spk-w-danderson:~/Java/Pool$ javac SimpleVector.java Ball.java Test.java && 
+java Test
+Reporting on ball: Number 1.
+ --> Rolling at 0.000, 0.000.
+
+ Test complete.
+
+Sun Jan  4 03:57:54 PST 2009
+
+2 errors
+dra@spk-w-danderson:~/Java/Pool$ javac SimpleVector.java SimpleCoordinates.java  Ball.java Test.java && java Test
+Pool hall test.
+---
+Reporting on ball: White ball
+ white ball near (0.000, 0.000).
+ Diameter 2.000, mass 4.200, heading [0.000, 0.000]
+---
+---
+Reporting on ball: Green ball
+ green ball near (-5.000, -2.000).
+ Diameter 2.000, mass 4.000, heading [1.000, 2.500]
+---
+Test complete.
+Sun Jan  4 11:36:37 PST 2009
+Ball: White ball
+ white ball near (0.000, 0.000).
+ Diameter 2.000, mass 4.200, heading [0.000, 0.000]
+ Still ball: true
+---------------------------------------------------------------
+---------------------------------------------------------------
+Ball: Green ball
+ green ball near (4.960, 4.960).
+ Diameter 2.000, mass 4.000, heading [0.004, 0.010]
+ Still ball: false
+---------------------------------------------------------------
+=============================++++=============================
+
+=============================RACK=============================
+---------------------------------------------------------------
+Ball: White ball
+ white ball near (0.000, 0.000).
+ Diameter 2.000, mass 4.200, heading [0.000, 0.000]
+ Still ball: true
+---------------------------------------------------------------
+---------------------------------------------------------------
+Ball: Green ball
+ green ball near (4.960, 4.961).
+ Diameter 2.000, mass 4.000, heading [0.000, 0.000]
+ Still ball: true
+---------------------------------------------------------------
+=============================++++=============================
