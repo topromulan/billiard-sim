@@ -34,7 +34,7 @@ public class Felt extends SimplePlane {
 			//does the location violate a border?
 			//
 
-			if( ! checkx(rack.set[i].location.x()))
+			if( ! checkx(rack.set[i] ) )
 			{
 				System.err.format(
 					"%s ball went out sideways.\n", 
@@ -50,7 +50,7 @@ public class Felt extends SimplePlane {
 
 			}
 
-			if( ! checky(rack.set[i].location.y()))
+			if( ! checky(rack.set[i] ) )
 			{
 				System.err.format(
 					"%s ball went out up or down.\n", 
@@ -86,27 +86,49 @@ public class Felt extends SimplePlane {
 
 	}
 
-	public boolean checkx(double x) {
-			// check if x is negative or exceeds bounds
+	public boolean checkx(Ball xBall) {
+			
+			//define minimum bound
 			//
+			double leftBound = xBall.radius;
+			
+			//define maximum bound
+			//
+			double rightBound = this.width() - xBall.radius;
 
-			if ( 
-				x > 0 	&&
-				x < this.width()
-			) 
+
+			// there has to be a mathematical function for
+			//  this but it escapes me DRA
+
+			double ballLeftEdge = xBall.location.x() - xBall.radius;
+			double ballRightEdge = xBall.location.x() + xBall.radius;
+
+			if (
+				ballLeftEdge > leftBound &&
+				ballRightEdge < rightBound
+			)
 				return true;
 
 			return false;
 	}
 
-	public boolean checky(double y) {
-			// check if y is negative or exceeds bounds
+	public boolean checky(Ball yBall) {
+			//define minimum bound
 			//
+			double bottomBound = yBall.radius;
+			
+			//define maximum bound
+			//
+			double topBound = this.height() - yBall.radius;
 
-			if ( 
-				y > 0 	&&
-				y < this.height()
-			) 
+
+			double ballBottomEdge = yBall.location.y() - yBall.radius;
+			double ballTopEdge = yBall.location.y() + yBall.radius;
+
+			if (
+				ballBottomEdge > bottomBound &&
+				ballTopEdge < topBound
+			)
 				return true;
 
 			return false;
