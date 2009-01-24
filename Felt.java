@@ -11,6 +11,14 @@ public class Felt extends SimplePlane {
 	}
 
 
+	/* rub rubs the balls across the felt
+	 * and handles bouncing off the edges 
+	 * of the table 
+	 *
+	 * collision with other balls is handled 
+	 * elsewhere
+	 */
+
 	public void rub(Rack rack) {
 
                 for(int i=0; i < rack.set.length; i ++ )

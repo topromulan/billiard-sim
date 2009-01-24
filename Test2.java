@@ -8,15 +8,15 @@ public class Test2 {
 			
 			//  Ball(n, a, m, r, x, y, vx, vy)
 			//
-			/*new Ball("Orange ball", "orange", 
-					2.0, 1, 
-					150, 250, 1, 1),
+			new Ball("Orange ball", "orange", 
+					2.0, 5, 
+					150, 250, 6, 2),
 			new Ball("White ball", "white",   
-					2.0, 1, 
-					630, 200, 1, 1),*/
+					2.0, 5, 
+					630, 200, 4, 5),
 			new Ball("Green ball", "green",   
 					2.1, 5.01, 
-					450, 240, 5.75, 10)
+					250, 285, -6, -2)
 
 			});
 
@@ -44,6 +44,8 @@ public class Test2 {
 		do {
 
 			Table.rub(theRack); 
+
+			theRack.collisions();
 
 			//Clear the screen
 			System.out.format("%c[2J", 0x1B);
