@@ -1,9 +1,9 @@
 
-A pool table sim for me to learn some Java and hopefully help out the kindly professor Julin.
+Simulating a pool table to learn some Java.
 
 The goal is a 2D table with no pockets (planned anyway) to demonstrate the conservation of momentum.
 
-The balls are simply discs with no rotation or spin planned. That would be the next step and then possibly 3D to get rolling and gravity going.
+The balls are simply discs with no rotation or spin planned. It would probably make sense to refactor the project assuming it is successful before adding that, and then possibly go 3D to get rolling and gravity going with spheres.
 
 Some kind of cheesy drag coefficient may slow the balls down or else they may simply operate in free space and keep conserving each others momentum with no other forces.
 
