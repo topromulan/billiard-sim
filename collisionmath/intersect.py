@@ -52,6 +52,10 @@
 
 #########
 
+####################################################################
+# Setting that line equal to one of the circles to form a parabola #
+####################################################################
+
 # y = mx + b
 # y = v +/- sqrt(-(x-h)^2 + r^2)
 
@@ -74,6 +78,10 @@
 
 # Note: b on the rsides is the line's y intercept
 
+##############################################################
+# The y intercepts of that parabola are the x values we need #
+##############################################################
+
 # if it yields real answers then plug them into the line equation for a quick answer
 #  where the collision point was or the circles' equations to calculate where the 
 #  circle struck - (would require comparing answers with line answer and discard one)
@@ -95,8 +103,38 @@ class Circle:
 		self.v = vert
 		self.r = radius
 
-c1 = Circle(4, 4, 2)
-c2 = Circle(3, 3, 2)
+#original test from paper
+#c1 = Circle(4, 4, 2)
+#c2 = Circle(3, 3, 2)
+
+#test 2
+#c1 = Circle(4, 4, 2)
+#c2 = Circle(6, 5, 2)
+
+#test 3 - much closer touch
+#c1 = Circle(4, 4, 2)
+#c2 = Circle(7.8, 5, 2)
+
+#test 4 - different size circles
+#c1 = Circle(3, 2, 1)
+#c2 = Circle(1, 4, 8**0.5)
+
+#test 5 - circles not touching
+#c1 = Circle(3, 4, 2)
+#c2 = Circle(8, 3, 2)
+
+#test 6 - circles parallel horizontally, touching
+# gets division by zero..
+c1 = Circle(3, 4, 2)
+c2 = Circle(6.5, 4, 2)
+#test 7 - circles parallel horizontally, not touching
+##
+
+#test 8 - circles parallel vertically, touching
+c1 = Circle(4, 3, 2)
+c2 = Circle(4, 6.5, 2)
+#test 9 - circles parallel vertically, not touching
+
 
 
 # slope = -[(h1-h2)/(v1-v2)]
@@ -174,6 +212,16 @@ if ( x2.__class__ != type('asdf') ):
 	print "#in C2 (-): # %.3f" % ( c1.v - (-(x2 - c1.h)**2 + c1.r**2)**0.5 )
 	
 
+print "#############"
+print "#           # "
+print "# C1+:      # y = %.3f + sqrt(-(x-%.3f)^2 + %.3f^2)" % (c1.v, c1.h, c1.r)
+print "# C1-:      # y = %.3f - sqrt(-(x-%.3f)^2 + %.3f^2)" % (c1.v, c1.h, c1.r)
+print "# C2+:      # y = %.3f + sqrt(-(x-%.3f)^2 + %.3f^2)" % (c2.v, c2.h, c2.r)
+print "# C2-:      # y = %.3f - sqrt(-(x-%.3f)^2 + %.3f^2)" % (c2.v, c2.h, c2.r)
+print "# Line:     # y = %.3fx + %.3f" % (l.m, l.b)
+print "#           # "
+print "#           # "
+print "#           # "
 
 
 
