@@ -3,7 +3,9 @@ Simulating a pool table to learn some Java.
 
 The goal is a 2D table with no pockets (planned anyway) to demonstrate the conservation of momentum.
 
-The balls are simply discs with no rotation or spin planned. It would probably make sense to refactor the project assuming it is successful before adding that, and then possibly go 3D to get rolling and gravity going with spheres.
+The balls are simply discs with no rotation or spin planned. The table currently renders in text mode by clearing the screen and redrawing. Debug information is going to standard error.
 
-Some kind of cheesy drag coefficient may slow the balls down or else they may simply operate in free space and keep conserving each others momentum with no other forces.
+Future Plan: The main point for v1 is to learn Java. When this works good, plan to take a step back and reassess the design. Refactor the project and add the third dimension; get rolling, spinning, gravity, and friction going with some spheres.
 
+
+Right now (2/15) the balls slow to a halt when they are near each other and undergoing collision check. Near is defined by being in the same arbitrary sector the table is divided up into. I did the math to detect the collisions by hand and in Python and am working on implementing it into the Java program now.
