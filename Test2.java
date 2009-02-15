@@ -16,7 +16,28 @@ public class Test2 {
 					630, 200, 40, 5),
 			new Ball("Green ball", "green",   
 					2.1, 5.01, 
-					250, 285, -6, -20)
+					250, 285, -6, -20),
+			new Ball("Wow 1 ball", "wow",   
+					2.0, 5, 
+					200, 185, -16, -25),
+			new Ball("Wow 2 ball", "wow",   
+					2.0, 5, 
+					290, 125, -16, -25),
+			new Ball("Wow 3 ball", "wow",   
+					2.0, 5, 
+					210, 155, -16, -25),
+			new Ball("Wow 4 ball", "wow",   
+					2.0, 5, 
+					600, 135, -16, -25),
+			new Ball("Wow 5 ball", "wow",   
+					2.0, 5, 
+					500, 175, -16, -25),
+			new Ball("Wow 6 ball", "wow",   
+					2.0, 5, 
+					400, 185, -16, -25),
+			new Ball("Crazy ball", "crazy",   
+					2.0, 3, 
+					290, 215, -32, -1)
 
 			});
 
@@ -49,8 +70,8 @@ public class Test2 {
 
 			render(Table, theRack);
 			
-			System.err.format("%c[2J", 0x1B);
-			System.err.println(theRack.report());
+			//System.err.format("%c[2J", 0x1B);
+			//System.err.println(theRack.report());
 
 			try {
 
