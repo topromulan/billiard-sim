@@ -41,14 +41,19 @@ public class Felt extends SimplePlane {
 
 			//does the location violate a border?
 			//
+			//				/* represent! */
+			//
+			//				   * in da house..
+			//
+			//				   remappper with
+			//				   all yall pool
+			//				   hall balls gone
+			//				   billiards while
+			//				   yous was eatin
+			//				   a banana split
 
 			if( ! checkx(rack.set[i] ) )
 			{
-				System.err.format(
-					"%s ball went out sideways.\n", 
-					rack.set[i].adjective
-					);
-
 				// reverse the flux!!
 				vx *= -1;			
 
@@ -60,11 +65,6 @@ public class Felt extends SimplePlane {
 
 			if( ! checky(rack.set[i] ) )
 			{
-				System.err.format(
-					"%s ball went out up or down.\n", 
-					rack.set[i].adjective
-					);
-
 				// reverse the flux!!
 				vy *= -1;			
 

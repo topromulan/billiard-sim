@@ -1,5 +1,5 @@
 
-
+import static java.lang.Math.pow;
 
 public class Ball {
 
@@ -13,9 +13,6 @@ public class Ball {
 	double radius;
 
 	boolean still;
-	
-
-
 
 	public Ball() {
 		name = "Number 1";
@@ -55,6 +52,20 @@ public class Ball {
 	public void stop() {
 		motion.set(0,0);
 		this.still = true;
+	}
+
+	public boolean isTouching(Ball other) {
+		 /*  use pythagoras */
+
+		double distance = pow(
+				pow(location.x() - other.location.x(), 2) +
+				pow(location.y() - other.location.y(), 2),
+					0.5);
+
+		if ( distance < radius + other.radius ) 
+			return true;
+
+		return false;
 	}
 
 	public String report() {
