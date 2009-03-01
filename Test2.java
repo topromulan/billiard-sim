@@ -8,36 +8,18 @@ public class Test2 {
 			
 			//  Ball(n, a, m, r, x, y, vx, vy)
 			//
+			new Ball("White ball", "white", 
+					2.0, 5, 
+					50, 50, 30, 0),
+			new Ball("Red ball", "red", 
+					2.0, 5, 
+					450, 50, -10, -20),
 			new Ball("Orange ball", "orange", 
 					2.0, 5, 
-					150, 250, 16, 12),
-			new Ball("White ball", "white",   
+					150, 150, 16, 12),
+			new Ball("Black ball", "black",   
 					2.0, 5, 
-					630, 200, 40, 5),
-			new Ball("Green ball", "green",   
-					2.1, 5.01, 
-					250, 285, -6, -20),
-			new Ball("Wow 1 ball", "wow1",   
-					2.0, 5, 
-					200, 185, -16, -25),
-			new Ball("Wow 2 ball", "wow2",   
-					2.0, 5, 
-					290, 125, -16, -25),
-			new Ball("Wow 3 ball", "wow3",   
-					2.0, 5, 
-					210, 155, -16, -25),
-			new Ball("Wow 4 ball", "wow4",   
-					2.0, 5, 
-					600, 135, -16, -25),
-			new Ball("Wow 5 ball", "wow5",   
-					2.0, 5, 
-					500, 175, -16, -25),
-			new Ball("Wow 6 ball", "wow6",   
-					2.0, 5, 
-					400, 185, -16, -25),
-			new Ball("Crazy ball", "crazy ass",   
-					2.0, 3, 
-					290, 215, -32, -1)
+					350, 150, -16, 12)
 
 			});
 
