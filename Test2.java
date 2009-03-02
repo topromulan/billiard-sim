@@ -8,7 +8,7 @@ public class Test2 {
 			
 			//  Ball(n, a, m, r, x, y, vx, vy)
 			//
-			new Ball("White ball", "white", 
+			new Ball("White ball", "white",
 					2.0, 5, 
 					50, 50, 30, 0),
 			new Ball("Red ball", "red", 
