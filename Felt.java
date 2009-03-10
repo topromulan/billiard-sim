@@ -108,12 +108,14 @@ public class Felt extends SimplePlane {
 			// there has to be a mathematical function for
 			//  this but it escapes me DRA
 
-			double ballLeftEdge = xBall.location.x() - xBall.radius;
-			double ballRightEdge = xBall.location.x() + xBall.radius;
+			//oops don't need the edges the bounds account for 
+			// the radius already..
+			//double ballLeftEdge = xBall.location.x() - xBall.radius;
+			//double ballRightEdge = xBall.location.x() + xBall.radius;
 
 			if (
-				ballLeftEdge > leftBound &&
-				ballRightEdge < rightBound
+				xBall.location.x() > leftBound &&
+				xBall.location.x() < rightBound
 			)
 				return true;
 
@@ -130,12 +132,14 @@ public class Felt extends SimplePlane {
 			double topBound = this.height() - yBall.radius;
 
 
-			double ballBottomEdge = yBall.location.y() - yBall.radius;
-			double ballTopEdge = yBall.location.y() + yBall.radius;
+			// oops don't need edges the bounds already account
+			//  for the radii..
+			//double ballBottomEdge = yBall.location.y() - yBall.radius;
+			//double ballTopEdge = yBall.location.y() + yBall.radius;
 
 			if (
-				ballBottomEdge > bottomBound &&
-				ballTopEdge < topBound
+				yBall.location.y() > bottomBound &&
+				yBall.location.y() < topBound
 			)
 				return true;
 
