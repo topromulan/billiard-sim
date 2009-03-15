@@ -1,6 +1,7 @@
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
+import static java.lang.Math.atan;
 
 
 public class Rack {
@@ -89,11 +90,36 @@ public class Rack {
 			diffmag = pow( pow(diffx, 2) + pow(diffy, 2), 0.5);
 
 		SimpleVector unitv = new SimpleVector( diffx / diffmag, diffy / diffmag );
+
+		SimpleVector testv = new SimpleVector(diffx, diffy);
+
+		//(i): how much of the unit vector to add to b2 depends
+		//      on how differently angled it is from the
+		//      vector of b1. if exactly the same, 100%. 
+		//      if nearly orthogonal, nearly nothing.
+		//
+		//     I'll try just accounting for that linearly
+		//      from zero to pi = zero to 100% different.
+		//
+		//  so i want like the abs(arctan(y/x))
+
+		//first for that unit vector i made
+
+		double	angle1 = atan(unitv.vy() / unitv.vx()),
+			angle2 = atan(b1.motion.vy() / b1.motion.vx());
+
+		System.err.format("%f & %f. diff: %f\n", angle1, angle2, angle1 - angle2);
+
+
+		/*double 	tx1 = 
+			ty1 =
+			tx2 = 
+			ty2 = 
 		
-		b1.motion.setvx(origvx1 - unitv.vx() * mag2);
-		b1.motion.setvy(origvy1 - unitv.vy() * mag2);
-		b2.motion.setvx(origvx2 + unitv.vx() * mag1);
-		b2.motion.setvy(origvy2 + unitv.vx() * mag1);
+		b1.motion.setvx(
+		b1.motion.setvy(
+		b2.motion.setvx(
+		b2.motion.setvy(*/
 	}
 
 

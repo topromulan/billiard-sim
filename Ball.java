@@ -12,11 +12,14 @@ public class Ball {
 	double mass;
 	double radius;
 
+	String colour;
+
 	boolean still;
 
 	public Ball() {
 		name = "Number 1";
 		adjective = "generic";
+		colour = "7";			//white
 		motion = new SimpleVector(0,0);
 		location = new SimpleCoordinates(0,0);
 		mass = 1.5;
@@ -24,10 +27,17 @@ public class Ball {
 		still = true;
 	}
 
-	public Ball(String n, String a, double m, double r, double x, double y, double vx, double vy) {
+	public Ball(String n, int clr, String a, double m, double r, double x, double y, double vx, double vy) {
+		this(n, String.format("%d", clr), a, m, r, x, y, vx, vy);
+	}
+
+
+	public Ball(String n, String clr, String a, double m, double r, double x, double y, double vx, double vy) {
 		name = n;
 
 		adjective = a;
+
+		colour = clr;
 
 		mass = m;
 		radius = r;
