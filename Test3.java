@@ -1,19 +1,48 @@
 
 
-public class Test2 {
+public class Test3 {
 
 	public static void main(String[] args) {
 
-		Rack theRack = new Rack (new Ball[] { 
+		//Rack1: Head-on collision..
+		Rack Rack1 = new Rack (new Ball[] { 
 			
 			//  Ball(n, clr, a, m, r, x, y, vx, vy)
 			//
 	
 			new Ball("White ball", "1;37", "white",
-					2.0, 5, 
+					2.0, 4, 
 					50, 150, 30, 0),
 			new Ball("Red ball", 31, "red", 
-					2.0, 5, 
+					2.0, 4, 
+					450, 150, 0, 0)
+		});
+
+		//Rack2: Collision at pi/4
+		Rack Rack2 = new Rack (new Ball[] { 
+			
+			//  Ball(n, clr, a, m, r, x, y, vx, vy)
+			//
+	
+			new Ball("White ball", "1;37", "white",
+					2.0, 4, 
+					50, 149, 30, 0),
+			new Ball("Red ball", 31, "red", 
+					2.0, 4, 
+					450, 150, 0, 0)
+		});
+
+		//Rack3: Glancing collision
+		Rack Rack3 = new Rack (new Ball[] { 
+			
+			//  Ball(n, clr, a, m, r, x, y, vx, vy)
+			//
+	
+			new Ball("White ball", "1;37", "white",
+					2.0, 4, 
+					50, 148.01, 30, 0),
+			new Ball("Red ball", 31, "red", 
+					2.0, 4, 
 					450, 150, 0, 0)
 		});
 
@@ -23,7 +52,15 @@ public class Test2 {
 						// higher layer
 						//
 
-		runTable(Table, theRack);
+
+		//Clear the debug output screen
+		System.err.format("%c[2J", 0x1B);
+
+
+		//Run the tests
+		runTable(Table, Rack1);
+		runTable(Table, Rack2);
+		runTable(Table, Rack3);
 
 
 	}
@@ -40,7 +77,6 @@ public class Test2 {
 			} catch (Exception e) {}
 		
 
-		System.err.format("%c[2J", 0x1B);
 		System.err.println("New pool hall test.\n----------");
 		
 
