@@ -5,14 +5,14 @@ A 2D table with no pockets to demonstrate the conservation of momentum.
 
 The table currently renders in text to standard output with some events or debugging output going to standard error.
 
-Execute test2.sh in a terminal and redirect the error output. Example:
+Execute test3.sh in a terminal and redirect the error output. Example:
 
-. test2.sh 2> /tmp/err
+. test3.sh 2> /tmp/err
 
 tail -f /tmp/err
 
-The balls are simple discs with no rotation or spin planned. The table currently renders in text mode by clearing the screen and redrawing. Debug information is going to standard error.
+At this time the balls are simple discs with no rotation or spin. The table currently renders in text mode by clearing the screen and redrawing. Debug information is going to standard error.
 
-Future Plan: The main point is to learn Java. When this works good, plan to take a step back and reassess the design. Refactor the project and add the third dimension; get rolling, spinning, gravity, and friction going with some spheres.
+test3.sh sets the terminal line to character mode (min 1) and disables echo. Then it restores to original line settings after the program finishes.
 
 
