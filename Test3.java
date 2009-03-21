@@ -67,16 +67,23 @@ public class Test3 {
 
 
 		
+	/*
+	 * runTable():
+	 *
+	 * Run rack on table until a key is pressed.
+	 *
+	 * Currently requires setting stty properly
+	 *  before starting program
+	 */
+
 	static void runTable(Felt table, Rack rack) {
 
 		System.out.println(rack.report());
 		
 			try {
-
 				java.lang.Thread.sleep(5000);
 			} catch (Exception e) {}
 		
-
 		System.err.println("New pool hall test.\n----------");
 		
 
@@ -92,9 +99,18 @@ public class Test3 {
 			//System.err.println(theRack.report());
 
 			try {
+				// Is a character waiting?
+				if ( System.in.available() > 0 )
+				{
+					//Flush it and break
+					System.in.read();
+					break;
+				}
 
+				// Arbitrary speed of table..
 				java.lang.Thread.sleep(100);
-			} catch (Exception e) {}
+
+			} catch (Exception e) {/* **** */}
 
 		} while ( rack.hasMotion( ) );
 
