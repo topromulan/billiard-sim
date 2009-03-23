@@ -27,6 +27,21 @@ public class SimpleVector {
 	}
 
 
+	public void subtractvx(double vx) {
+		data[0] -= vx;
+	}
+	public void subtractvy(double vy) {
+		data[0] -= vy;
+	}
+
+
+	public void subtract(SimpleVector v) {
+		subtractvx(v.vx());
+		subtractvy(v.vy());
+	}
+
+
+
 	public void addvx(double vx) {
 		data[0] += vx;
 	}
