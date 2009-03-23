@@ -26,11 +26,18 @@ public class SimpleVector {
 		data[1] = vy;
 	}
 
+
 	public void addvx(double vx) {
 		data[0] += vx;
 	}
 	public void addvy(double vy) {
 		data[0] += vy;
+	}
+
+
+	public void add(SimpleVector v) {
+		addvx(v.vx();
+		addvy(v.vy();
 	}
 
 	public double vx() {
