@@ -26,6 +26,13 @@ public class SimpleVector {
 		data[1] = vy;
 	}
 
+	public void addvx(double vx) {
+		data[0] += vx;
+	}
+	public void addvy(double vy) {
+		data[0] += vy;
+	}
+
 	public double vx() {
 		return data[0];
 	}
@@ -33,6 +40,7 @@ public class SimpleVector {
 	public double vy() {
 		return data[1];
 	}
+
 
 
 }
