@@ -36,8 +36,8 @@ public class SimpleVector {
 
 
 	public void add(SimpleVector v) {
-		addvx(v.vx();
-		addvy(v.vy();
+		addvx(v.vx());
+		addvy(v.vy());
 	}
 
 	public double vx() {
