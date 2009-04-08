@@ -2,6 +2,7 @@
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.Math.atan;
+import static java.lang.Math.PI;
 
 
 public class Rack {
@@ -12,14 +13,6 @@ public class Rack {
 
 		set = s;
 
-		//calculate the largest ball and thereby
-		// the size of quadrants for collision check
-
-		double biggestBall=0;
-
-		for ( int i=0; i < set.length; i++ )
-			if ( set[i].radius > biggestBall )
-				biggestBall = set[i].radius;
 		
 	}
 
@@ -69,13 +62,6 @@ public class Rack {
 
 	private void collide(Ball b1, Ball b2)
 	{
-		//hypo-theory:
-		//
-		// calculate the magnitude of each ball's vector
-		//  and multiply that times a unit vector pointing
-		//  from the ball's center to the other ball's center
-		//  then add that to the other ball's center
-
 		double	origvx1 = b1.motion.vx(),
 			origvy1 = b1.motion.vy(),
 			origvx2 = b2.motion.vx(),
@@ -89,9 +75,11 @@ public class Rack {
 			diffy = b2.location.y() - b1.location.y(),
 			diffmag = pow( pow(diffx, 2) + pow(diffy, 2), 0.5);
 
+		System.err.format("%s ball hitting %s ball\n", b1.adjective, b2.adjective);
+
 		SimpleVector unitv = new SimpleVector( diffx / diffmag, diffy / diffmag );
 
-		SimpleVector testv = new SimpleVector(diffx, diffy);
+		//SimpleVector testv = new SimpleVector(diffx, diffy);
 
 		//(i): how much of the unit vector to add to b2 depends
 		//      on how differently angled it is from the
@@ -105,21 +93,66 @@ public class Rack {
 
 		//first for that unit vector i made
 
-		double	angle1 = atan(unitv.vy() / unitv.vx()),
-			angle2 = atan(b1.motion.vy() / b1.motion.vx());
+		double	collisionAngle = atan(unitv.vy() / unitv.vx()),
+			ball1VectorAngle = atan(b1.motion.vy() / b1.motion.vx());
 
-		System.err.format("%f & %f. diff: %f\n", angle1, angle2, angle1 - angle2);
+		double diff = collisionAngle - ball1VectorAngle;
 
+		if ( diff > PI ) {
+			System.err.println("Subtracting PI from diff.");
 
-		/*double 	tx1 = 
-			ty1 =
-			tx2 = 
-			ty2 = 
+			diff -= PI;
+		}
+
+		System.err.format("cA: %f b1v: %f. diff: %f\n", 	
+			collisionAngle, ball1VectorAngle,
+			diff);
+
+		//Hypothesis: find the absolute value of the difference
+		// 
+		// Multiply the unit vector times a percentage of ball 1's mass and velocity
+		//  from 100 to zero percent depending on this scale:
+		//
+		//                     pi/2 = 0%
+		//                      |
+		//                      |
+		//                      |
+		//                      |
+		//pi = 100% ____________|____________ zero = 100%
+		// 
+		//
+		// calculate bounceVector from unit vector
+		//  and apply + to ball 1 and - to ball 2
+
+		double magBounce;
+
+		if ( diff >= (PI/2) ) {
+
+			System.err.format("Case 1.\n");
+			magBounce = 1.0 * ( (PI - diff) / (PI / 2 ) ) ;
+
+		}
 		
-		b1.motion.setvx(
-		b1.motion.setvy(
-		b2.motion.setvx(
-		b2.motion.setvy(*/
+
+		else /* diff < PI/2 */ {
+			System.err.format("Case 2.\n");
+			magBounce = 1.0 * ( (PI / 2 - diff) / ( PI / 2 ) ) ;
+
+		}
+
+
+		
+
+		SimpleVector bounceVector = new SimpleVector(unitv.vx()*magBounce, unitv.vy()*magBounce);
+
+		b2.motion.add(bounceVector);
+		b1.motion.subtract(bounceVector);
+
+		System.err.print(b1.report());
+		System.err.print(b2.report());
+
+		System.err.format("magBounce is %f. Bounce vector was %f, %f\n", magBounce, bounceVector.vx(), bounceVector.vy());
+
 	}
 
 
